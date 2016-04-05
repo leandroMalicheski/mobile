@@ -1,0 +1,42 @@
+.alert-danger{
+padding: 15px;
+margin-bottom: 5px;
+border: 1px solid transparent;
+color: #a94442;
+background-color: #f2dede;
+border-color: #ebccd1;	
+}
+
+.alert-sucess{
+padding: 15px;
+margin-bottom: 20px;
+border: 1px solid transparent;
+border-radius: 4px;
+color: #3c763d;
+background-color: #dff0d8;
+border-color: #d6e9c6;
+}
+
+.div-tabs{
+	background-color: #2a2a2a;
+	width: 100%;
+}
+.tab-button{
+height: 35px;
+width: 32%;
+border: none;
+background-color: #2a2a2a;
+color:#c0c0c0;
+}
+
+.conjunto{
+	background-color:#c1ffc1;
+	border: 1px solid transparent;
+	border-radius: 4px; 
+}
+.lendario{
+	background-color:#a67c4f; 
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+

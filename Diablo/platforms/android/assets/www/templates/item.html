@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/angular-messages.js"></script>
+
+<!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+</head>
+<body ng-app="app" >
+	<ion-view title="Item"> 
+		<ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="itemCtrl as itemCtrl">
+			<span ng-init="itemCtrl.getItemList()"></span>
+			
+			<div class="list card" ng-repeat="item in itemsList" ng-show="{{item.id}} === {{itemId}}">
+  				<div class="item item-thumbnail-left">
+					<img src="{{item.imagePath}}">
+					<h2>{{item.class}}</h2><br>
+  					<h2>{{item.name}}</h2>
+  				</div>
+  				<div class="item item-body">
+  					<p>
+						<span ng-hide="{{item.primary}} === null"><b>Habilidade Primaria: </b>{{item.primary}} <br></span>
+  						<span ng-hide="{{item.secondary}} === null"><b>Habilidade Secundária: </b>{{item.secondary}}<br></span>
+  						<span ng-hide="{{item.conjunto}} === null" ng-repeat="conjunto in item.conjunto"><b>{{conjunto.name}}:</b><br>{{conjunto.description}}<br></span>
+  					</p>
+  				</div>
+		</ion-content>
+	</ion-view>
+</body>
+</html>

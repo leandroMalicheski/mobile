@@ -1,0 +1,17 @@
+<!-- Shoulder -->
+<label class="item item-select" name="Shoulder"> <span	class="input-label">Shoulder</span>
+	<select name="shoulder"	ng-model="character.shoulderId" required>
+		<option ng-repeat="item in shoulderList" value="{{item.id}}">{{item.name}}</option>
+	</select>
+</label>
+<div ng-show="createSetForm.shoulder.$error.required" class="alert-danger" role="alert"> <b>Shoulder</b> is a required field</div>
+
+<!-- Head -->
+<label class="item item-select" name="Head"> <span class="input-label">Head</span> 
+	<select name="head"	ng-model="character.headId" required>
+		<option ng-repeat="item in headList" value="{{item.id}}">{{item.name}}</option>
+	</select>
+</label>
+<div ng-show="createSetForm.head.$error.required" class="alert-danger" role="alert"><b>Head</b> is a required field</div>
+
+<!-- Amulet -->

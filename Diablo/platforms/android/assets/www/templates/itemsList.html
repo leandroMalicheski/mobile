@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/angular-messages.js"></script>
+
+<!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+</head>
+<body ng-app="app" >
+	<ion-view title="Items"> 
+		<ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="itemsListCtrl as itemsListCtrl">
+			<span ng-init="itemsListCtrl.getItemList()"></span>
+			<div class="list" ng-repeat="item in itemsList">
+				<a class="item item-thumbnail-left" ng-click="itemsListCtrl.redirect({{item.id}})" ng-show="{{item.categoryId}} === {{categoryId}}">
+					<img src="{{item.imagePath}}">
+					<h2>{{item.class}}</h2>
+					<h2>{{item.name}}</h2>
+				</a>
+			</div>
+		</ion-content>
+	</ion-view>
+</body>
+</html>

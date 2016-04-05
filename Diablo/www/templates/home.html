@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/default.css" rel="stylesheet">
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/angular-messages.js"></script>
+
+<!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+</head>
+<body ng-app="app"> 
+<ion-view title="Home">
+    <ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="homeCtrl as homeCtrl">
+    	<div class="list" ng-repeat="character in characters">
+			<a class="item item-thumbnail-left" ng-click="homeCtrl.redirect({{character.id}})">
+				<img src="{{classList[character.classId].imagePath}}">
+				<h2>{{character.name}}</h2>
+				<p>{{classList[character.classId].name}}</p>
+			</a>
+		</div>
+    	<button ng-click="homeCtrl.listCharacters()" class="button button-block button-dark">List Characters</button>
+    </ion-content>
+</ion-view>
+</body>
+</html>

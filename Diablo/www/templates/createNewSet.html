@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/default.css" rel="stylesheet">
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/angular-messages.js"></script>
+
+<!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+</head>
+<body ng-app="app"> 
+	<ion-view title="Create New Set"> 
+		<ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="createNewSetCtrl as createNewSetCtrl">
+			<form name="createSetForm" ng-submit="createSetForm.$valid && createNewSetCtrl.addCharacter(character)" novalidate">
+				<div class="form-group list">
+					<div ng-show="createNewSetCtrl.isCreated(true)" class="alert-sucess"><b>New Character Created</b></div>
+					
+					<label class="item item-input">  
+						<input type="text" name="name" placeholder="Character Name" class="form-control ng-invalid ng-dirty" ng-model="character.name" required>
+					</label> 
+					<div ng-show="createSetForm.name.$error.required" class="alert-danger" role="alert"><b>Name</b> is a required field </div>
+					
+					<label class="item item-select" name="Class"> 
+						<span class="input-label">Class</span> 
+						<select name="class" ng-model="character.classId" required>
+							<option class="form-control" ng-repeat="class in classList" value="{{class.id}}">{{class.name}}</option>
+						</select> 
+					</label>
+					<div ng-show="createSetForm.class.$error.required" class="alert-danger" role="alert"><b>Class</b> is a required field </div>
+					
+					<set-form></set-form>
+					
+					
+					<input type="submit" class="button button-block button-dark" value="Create">
+				</div>
+			</form>			
+		</ion-content> 
+	</ion-view>
+</body>
+</html>

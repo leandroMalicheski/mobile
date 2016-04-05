@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/default.css" rel="stylesheet">
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/angular-messages.js"></script>
+
+<!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+</head>
+<body ng-app="app"> 
+<ion-view title="Character">
+	<ion-content overflow-scroll="true" scroll="true" class="has-header" ng-controller="characterCtrl as characterCtrl" >
+		<char-profile></char-profile>
+		<div ng-show="characterCtrl.selectedView(0)" >
+			<div class="row">
+				<div class="col"><img style="float: right; " ng-repeat="shoulder in shoulderList" ng-show="{{shoulder.id}} === {{character.shoulderId}}" src="{{shoulder.imagePath}}"></div>
+				<div class="col-15"><img ng-repeat="head in headList" ng-show="{{head.id}} === {{character.headId}}" src="{{head.imagePath}}""></div>
+				<div class="col"><img style="float: left;" ng-repeat="shoulder in shoulderList" ng-show="{{shoulder.id}} === {{character.shoulderId}}" src="{{shoulder.imagePath}}"></div>
+			</div><div class="row">
+				<div class="col"><img style="float: right;" ng-repeat="shoulder in shoulderList" ng-show="{{shoulder.id}} === {{character.shoulderId}}" src="{{shoulder.imagePath}}"></div>
+				<div class="col-15"><img ng-repeat="head in headList" ng-show="{{head.id}} === {{character.headId}}" src="{{head.imagePath}}""></div>
+				<div class="col"><img style="float: left;" ng-repeat="shoulder in shoulderList" ng-show="{{shoulder.id}} === {{character.shoulderId}}" src="{{shoulder.imagePath}}"></div>
+			</div><div class="row">	
+				<div class="col"><img style="float: right;" ng-repeat="shoulder in shoulderList" ng-show="{{shoulder.id}} === {{character.shoulderId}}" src="{{shoulder.imagePath}}"></div>
+				<div class="col-15"><img ng-repeat="head in headList" ng-show="{{head.id}} === {{character.headId}}" src="{{head.imagePath}}""></div>
+				<div class="col"><img style="float: left;" ng-repeat="shoulder in shoulderList" ng-show="{{shoulder.id}} === {{character.shoulderId}}" src="{{shoulder.imagePath}}"></div>
+			</div>	
+  		</div>
+  		<div ng-show="characterCtrl.selectedView(1)">
+  			Teste 1
+  		</div>
+  		
+  		<div ng-show="characterCtrl.selectedView(2)" >
+  			Teste 2
+  		</div>  		
+  		<div class="div-tabs">
+			<button type="button" class="tab-button" ng-click="characterCtrl.setView(0)"><span class="ion-eye"></span></button>
+			<button type="button" class="tab-button" ng-click="characterCtrl.setView(1)"><span class="ion-fireball"></span></button>
+			<button type="button" class="tab-button" ng-click="characterCtrl.setView(2)"><span class="ion-leaf"></span></button>
+  		</div>
+    </ion-content>
+</ion-view>
+</body>
+</html>
